@@ -341,7 +341,6 @@ public class CommentTable {
                 profileImageUrl);
     }
 
-
     /**
      * Delete big comments (Maximum 512 * 1024 = 524288) (fix #2855)
      * @return number of deleted comments
