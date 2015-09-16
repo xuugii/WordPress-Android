@@ -6,8 +6,12 @@ import org.json.JSONObject;
 import org.wordpress.android.util.StringUtils;
 
 public class AccountModel {
-    // WordPress.com only - data fetched from the REST API endpoint
     private String mUserName;
+
+    // Self hosted only
+    private String mPassword;
+
+    // WordPress.com only - data fetched from the REST API endpoint
     private long mUserId;
     private String mDisplayName;
     private String mProfileUrl;
@@ -118,5 +122,17 @@ public class AccountModel {
 
     public void setVisibleSiteCount(int visibleSiteCount) {
         mVisibleSiteCount = visibleSiteCount;
+    }
+
+    public boolean isWordPressComUser() {
+        return hasAccessToken();
+    }
+
+    /**
+     * TODO: test it on startup?
+     * @return true if the current self hosted site support WP-API
+     */
+    public boolean isWPAPISupported() {
+        return true;
     }
 }
